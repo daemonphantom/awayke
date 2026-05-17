@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A1919E98EBF28B4D3ABCDB7 /* AwaykeHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403D4D1091F6AB1DE294467F /* AwaykeHelperProtocol.swift */; };
+		40A06EDB8B9E081FF172EBCF /* daemonphantom.Awayke.Helper.plist in Copy Launchd Plist */ = {isa = PBXBuildFile; fileRef = 9008D6280D64E35A7E26F390 /* daemonphantom.Awayke.Helper.plist */; };
+		6662F55F00982674A8E5740F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9579A53B199F110C734AE7 /* Cocoa.framework */; };
+		91BA4D41E83D0FD69AF70F54 /* AwaykeHelper in Copy Helper Executable */ = {isa = PBXBuildFile; fileRef = BF17FFB0B2FED00859C33618 /* AwaykeHelper */; };
+		A930076810B214AF46241762 /* AwaykeHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403D4D1091F6AB1DE294467F /* AwaykeHelperProtocol.swift */; };
+		F4A02996A5AC7A09443089DF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EE5E29CE5B4BC5AE2AC4EA /* main.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6885D1BDE7721E6045916BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63929AE32FBA1D050015E6CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AEE3719FD4990C714BDA516;
+			remoteInfo = AwaykeHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B5D0477F549342C854A9A28 /* Copy Launchd Plist */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				40A06EDB8B9E081FF172EBCF /* daemonphantom.Awayke.Helper.plist in Copy Launchd Plist */,
+			);
+			name = "Copy Launchd Plist";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FEA1FC71D587A58A3A2A465 /* Copy Helper Executable */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				91BA4D41E83D0FD69AF70F54 /* AwaykeHelper in Copy Helper Executable */,
+			);
+			name = "Copy Helper Executable";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3B9579A53B199F110C734AE7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		403D4D1091F6AB1DE294467F /* AwaykeHelperProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwaykeHelperProtocol.swift; sourceTree = "<group>"; };
+		58E4984D1966ADF326E5DF03 /* AwaykeHelper.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = AwaykeHelper.entitlements; sourceTree = "<group>"; };
+		63929AEB2FBA1D060015E6CF /* Awayke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Awayke.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0CE4675BB92A00559876EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9008D6280D64E35A7E26F390 /* daemonphantom.Awayke.Helper.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = daemonphantom.Awayke.Helper.plist; sourceTree = "<group>"; };
+		BF17FFB0B2FED00859C33618 /* AwaykeHelper */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = text; path = AwaykeHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4EE5E29CE5B4BC5AE2AC4EA /* main.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		63929B002FBA1D080015E6CF /* Exceptions for "Awayke" folder in "Awayke" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 63929AEA2FBA1D060015E6CF /* Awayke */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		63929AED2FBA1D060015E6CF /* Awayke */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				63929B002FBA1D080015E6CF /* Exceptions for "Awayke" folder in "Awayke" target */,
+			);
+			path = Awayke;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63929AE82FBA1D060015E6CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6DC30C867977FFC87E640FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6662F55F00982674A8E5740F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52A50E13CFBFEF327615D9B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				762C847F07770EFD06D080FC /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63929AE22FBA1D050015E6CF = {
+			isa = PBXGroup;
+			children = (
+				63929AED2FBA1D060015E6CF /* Awayke */,
+				63929AEC2FBA1D060015E6CF /* Products */,
+				52A50E13CFBFEF327615D9B6 /* Frameworks */,
+				D54175EBCFCBB69025B96E9D /* AwaykeHelper */,
+			);
+			sourceTree = "<group>";
+		};
+		63929AEC2FBA1D060015E6CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63929AEB2FBA1D060015E6CF /* Awayke.app */,
+				BF17FFB0B2FED00859C33618 /* AwaykeHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		762C847F07770EFD06D080FC /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				3B9579A53B199F110C734AE7 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		D54175EBCFCBB69025B96E9D /* AwaykeHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C4EE5E29CE5B4BC5AE2AC4EA /* main.swift */,
+				403D4D1091F6AB1DE294467F /* AwaykeHelperProtocol.swift */,
+				7A0CE4675BB92A00559876EA /* Info.plist */,
+				9008D6280D64E35A7E26F390 /* daemonphantom.Awayke.Helper.plist */,
+				58E4984D1966ADF326E5DF03 /* AwaykeHelper.entitlements */,
+			);
+			path = AwaykeHelper;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AEE3719FD4990C714BDA516 /* AwaykeHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B198F343110D474F670B880 /* Build configuration list for PBXNativeTarget "AwaykeHelper" */;
+			buildPhases = (
+				EE5D9A69B0D2A713C70327CD /* Sources */,
+				D6DC30C867977FFC87E640FC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AwaykeHelper;
+			productName = AwaykeHelper;
+			productReference = BF17FFB0B2FED00859C33618 /* AwaykeHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+		63929AEA2FBA1D060015E6CF /* Awayke */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63929AF62FBA1D070015E6CF /* Build configuration list for PBXNativeTarget "Awayke" */;
+			buildPhases = (
+				63929AE72FBA1D060015E6CF /* Sources */,
+				63929AE82FBA1D060015E6CF /* Frameworks */,
+				63929AE92FBA1D060015E6CF /* Resources */,
+				9FEA1FC71D587A58A3A2A465 /* Copy Helper Executable */,
+				6B5D0477F549342C854A9A28 /* Copy Launchd Plist */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EED2AD3441B5C43FCAD9720C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				63929AED2FBA1D060015E6CF /* Awayke */,
+			);
+			name = Awayke;
+			productName = Awayke;
+			productReference = 63929AEB2FBA1D060015E6CF /* Awayke.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63929AE32FBA1D050015E6CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					63929AEA2FBA1D060015E6CF = {
+						CreatedOnToolsVersion = 26.5;
+					};
+				};
+			};
+			buildConfigurationList = 63929AE62FBA1D050015E6CF /* Build configuration list for PBXProject "Awayke" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63929AE22FBA1D050015E6CF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 63929AEC2FBA1D060015E6CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63929AEA2FBA1D060015E6CF /* Awayke */,
+				5AEE3719FD4990C714BDA516 /* AwaykeHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63929AE92FBA1D060015E6CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63929AE72FBA1D060015E6CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A1919E98EBF28B4D3ABCDB7 /* AwaykeHelperProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE5D9A69B0D2A713C70327CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4A02996A5AC7A09443089DF /* main.swift in Sources */,
+				A930076810B214AF46241762 /* AwaykeHelperProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EED2AD3441B5C43FCAD9720C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AwaykeHelper;
+			target = 5AEE3719FD4990C714BDA516 /* AwaykeHelper */;
+			targetProxy = B6885D1BDE7721E6045916BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		63929AF42FBA1D070015E6CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63929AF52FBA1D070015E6CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		63929AF72FBA1D070015E6CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Awayke/Awayke.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Awayke/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = daemonphantom.Awayke;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		63929AF82FBA1D070015E6CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Awayke/Awayke.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Awayke/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = daemonphantom.Awayke;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		99B7E455E6D2F20254B9349A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AwaykeHelper/AwaykeHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/AwaykeHelper/Info.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = daemonphantom.Awayke.Helper;
+				PRODUCT_NAME = daemonphantom.Awayke.Helper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FBA46B9DF22983EC5E3835E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AwaykeHelper/AwaykeHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/AwaykeHelper/Info.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = daemonphantom.Awayke.Helper;
+				PRODUCT_NAME = daemonphantom.Awayke.Helper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B198F343110D474F670B880 /* Build configuration list for PBXNativeTarget "AwaykeHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBA46B9DF22983EC5E3835E3 /* Release */,
+				99B7E455E6D2F20254B9349A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63929AE62FBA1D050015E6CF /* Build configuration list for PBXProject "Awayke" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63929AF42FBA1D070015E6CF /* Debug */,
+				63929AF52FBA1D070015E6CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63929AF62FBA1D070015E6CF /* Build configuration list for PBXNativeTarget "Awayke" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63929AF72FBA1D070015E6CF /* Debug */,
+				63929AF82FBA1D070015E6CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63929AE32FBA1D050015E6CF /* Project object */;
+}

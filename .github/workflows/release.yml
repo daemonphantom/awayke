@@ -1,0 +1,126 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: macos-15
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Import Developer ID certificate
+        env:
+          CERT_P12_BASE64: ${{ secrets.APPLE_DEV_ID_CERT_P12_BASE64 }}
+          CERT_PASSWORD: ${{ secrets.APPLE_DEV_ID_CERT_PASSWORD }}
+        run: |
+          KEYCHAIN_PATH="$RUNNER_TEMP/build.keychain"
+          KEYCHAIN_PASSWORD="$(uuidgen)"
+          CERT_PATH="$RUNNER_TEMP/cert.p12"
+
+          echo "$CERT_P12_BASE64" | base64 --decode > "$CERT_PATH"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security import "$CERT_PATH" -P "$CERT_PASSWORD" -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH" >/dev/null
+          security list-keychains -d user -s "$KEYCHAIN_PATH" $(security list-keychains -d user | tr -d '"')
+          security default-keychain -d user -s "$KEYCHAIN_PATH"
+
+      - name: Inject team ID into helper Info.plist
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          sed -i '' "s/TEAM_ID_PLACEHOLDER/$TEAM_ID/g" AwaykeHelper/Info.plist
+
+      - name: Build & sign
+        env:
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        run: |
+          xcodebuild \
+            -project Awayke.xcodeproj \
+            -scheme Awayke \
+            -configuration Release \
+            -derivedDataPath build \
+            CODE_SIGN_STYLE=Manual \
+            CODE_SIGN_IDENTITY="Developer ID Application" \
+            DEVELOPMENT_TEAM="$TEAM_ID" \
+            OTHER_CODE_SIGN_FLAGS="--timestamp --options=runtime"
+
+      - name: Verify signatures
+        run: |
+          APP=build/Build/Products/Release/Awayke.app
+          codesign --verify --strict --verbose=2 "$APP"
+          codesign --verify --strict --verbose=2 "$APP/Contents/MacOS/daemonphantom.Awayke.Helper"
+
+      - name: Zip for notarization
+        run: |
+          ditto -c -k --keepParent \
+            build/Build/Products/Release/Awayke.app \
+            Awayke.app.zip
+
+      - name: Notarize
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          NOTARY_PASSWORD: ${{ secrets.APPLE_NOTARY_PASSWORD }}
+        run: |
+          set +e
+          SUBMIT_OUTPUT=$(xcrun notarytool submit Awayke.app.zip \
+            --apple-id "$APPLE_ID" \
+            --team-id "$TEAM_ID" \
+            --password "$NOTARY_PASSWORD" \
+            --wait \
+            --output-format json)
+          echo "$SUBMIT_OUTPUT"
+
+          STATUS=$(echo "$SUBMIT_OUTPUT" | python3 -c "import json,sys;print(json.load(sys.stdin).get('status',''))")
+          SUBMISSION_ID=$(echo "$SUBMIT_OUTPUT" | python3 -c "import json,sys;print(json.load(sys.stdin).get('id',''))")
+
+          if [ "$STATUS" != "Accepted" ]; then
+            echo "=== Notary log for $SUBMISSION_ID ==="
+            xcrun notarytool log "$SUBMISSION_ID" \
+              --apple-id "$APPLE_ID" \
+              --team-id "$TEAM_ID" \
+              --password "$NOTARY_PASSWORD"
+            exit 1
+          fi
+
+      - name: Staple
+        run: |
+          xcrun stapler staple build/Build/Products/Release/Awayke.app
+
+      - name: Re-zip with stapled ticket
+        run: |
+          rm -f Awayke.app.zip
+          ditto -c -k --keepParent \
+            build/Build/Products/Release/Awayke.app \
+            Awayke.app.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Awayke ${{ github.ref_name }}"
+          body: |
+            Download **Awayke.app.zip**, unzip, drag to `/Applications`, open.
+
+            On first launch macOS will ask you to approve Awayke's background helper. Approve it once and toggling sleep is instant and silent from then on.
+          files: Awayke.app.zip
+          generate_release_notes: true
+
+      - name: Clean up keychain
+        if: always()
+        run: |
+          security delete-keychain "$RUNNER_TEMP/build.keychain" || true

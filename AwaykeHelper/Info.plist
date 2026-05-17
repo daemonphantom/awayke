@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    AwaykeHelper Info.plist (v2 scaffold).
+
+    Embedded into the helper binary via:
+      OTHER_LDFLAGS = -sectcreate __TEXT __info_plist $(SRCROOT)/AwaykeHelper/Info.plist
+    SMAuthorizedClients restricts XPC to the signed main Awayke app.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>daemonphantom.Awayke.Helper</string>
+    <key>CFBundleName</key>
+    <string>AwaykeHelper</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>SMAuthorizedClients</key>
+    <array>
+        <!-- Designated Requirement (DR) for the main Awayke app.
+             The TEAM_ID_PLACEHOLDER token is replaced at build time by
+             the release workflow. The cert OIDs assert this is a
+             genuine Developer ID Application cert from our team:
+               1.2.840.113635.100.6.2.6  = Developer ID intermediate
+               1.2.840.113635.100.6.1.13 = Developer ID leaf -->
+        <string>identifier "daemonphantom.Awayke" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "TEAM_ID_PLACEHOLDER"</string>
+    </array>
+</dict>
+</plist>
