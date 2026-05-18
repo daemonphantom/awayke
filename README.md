@@ -28,6 +28,9 @@ Requires Xcode 16+, macOS 13 Ventura or later.
 
 ## What it does
 
+<img width="310" height="126" alt="toggle button" src="https://github.com/user-attachments/assets/457398c5-2324-4328-b2fe-a0d555042caf" />
+
+
 Single click in your menubar:
 
 - **Orange laptop icon** - active: lid-close sleep is disabled. Close the lid and your agents keep running.
