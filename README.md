@@ -1,12 +1,16 @@
-# Awayke
+<p align="left">
+  <img width="90" height="90" src="Awayke/Assets.xcassets/AppIcon.appiconset/AppIcon1024.png"><h1 align="left">Awayke</h3>
+</p>
+
+
 
 **Close your lid. Keep your agents running.**
 
----
 
-Earlier this year Business Insider profiled the AI coders [walking around with their MacBook lids cracked open](https://www.businessinsider.com/coders-keep-laptops-open-in-public-ai-agent-2026-5)) - Awayke is the solution to this petrifying embarrassment.
+Earlier this year Business Insider profiled the AI coders [walking around with their MacBook lids cracked open](https://www.businessinsider.com/coders-keep-laptops-open-in-public-ai-agent-2026-5).
 
----
+Awayke is the fix.
+
 
 ## What it does
 
@@ -19,7 +23,6 @@ On first launch, macOS asks you to approve Awayke's background helper. Approve i
 
 Quitting Awayke always re-enables sleep automatically.
 
----
 
 ## Who it's for
 
@@ -27,7 +30,7 @@ You're running Claude Code, Codex, or Cursor on a long task. You want to close y
 
 If you've ever wedged something in your hinge to fake an external display, this is for you.
 
----
+
 
 ## Does it work with the lid fully closed?
 
@@ -35,7 +38,7 @@ If you've ever wedged something in your hinge to fake an external display, this 
 
 Awayke uses the `pmset disablesleep` mechanism, Apple's own system-level power management command, which operates below the layer that App Store sandbox restrictions apply to. This is what makes it work where other "Keep Awake" apps may fail to execute.
 
----
+
 
 ## Is this dangerous?
 
@@ -47,11 +50,11 @@ The dangerous scenario is: lid closed + inside a bag + heavy GPU/CPU load + cons
 
 **Awayke is designed for short hops: walking from one room to another, stepping into a meeting, a bathroom break.** 5–10 minutes, lid closed, ambient air around the laptop. Thermal risk in that scenario is genuinely low. Apple Silicon chips throttle gracefully before anything damaging happens.
 
-The bigger real-world risk is forgetting Awayke is on, putting the laptop in a bag, and coming back to a drained battery and a hot backpack an hour later. That's what v3 protects against (see roadmap).
+The bigger real-world risk is forgetting Awayke is on, putting the laptop in a bag, and coming back to a drained battery and a hot backpack an hour later. That's what a future enhancment protects against (5-minute auto-revert).
 
 **Keep the laptop on AC while Awayke is active.** macOS will still force sleep on critical battery regardless of `disablesleep`.
 
----
+
 
 ## How it works
 
@@ -61,7 +64,7 @@ Awayke wraps this in a single menubar toggle with no configuration surface.
 
 A privileged SMAppService helper daemon, installed once on first run, executes the `pmset` calls as root over XPC. After the one-time approval, every toggle is instant and silent — including across reboots. If the user declines approval, Awayke falls back to running the command via `osascript` with admin privileges, which prompts for the password on each toggle.
 
----
+
 
 ## Install
 
@@ -81,37 +84,20 @@ open Awayke.xcodeproj
 
 Requires Xcode 16+, macOS 13 Ventura or later.
 
----
+
 
 ## Caveats
 
 - `pmset -a disablesleep` is system-wide. While Awayke is active, nothing will sleep from a closed lid.
 - macOS will still force sleep on critical battery regardless of `disablesleep`. Keep the laptop on AC.
 
----
 
-## Roadmap
-
-- [x] v1 — menubar toggle via osascript, functional, shippable
-- [x] v2 — SMAppService privileged helper, fully password-free, silent on every toggle
-- [ ] v3 — 5-minute auto-revert: session cap with macOS notification when time expires, one-tap "extend 5 min" action from the notification. Protects against forgetting Awayke is active and walking away with the laptop in a bag. Battery and bag protection.
-- [x] Proper menubar icon (not text)
-- [ ] Optional: auto-activate when specific apps are running (Claude Code, Cursor, etc.)
-- [ ] Optional: menu item showing active session duration
-
----
 
 ## Why this exists
 
-It is my first Swift project that I deployed, built to solve a problem that shows up in my daily life. I saw Amphetamine has the function to disable sleep when shutting off the lid, but it is buried deep in settings, having it the wrong UX for my problem.
+Amphetamine is the right idea with the wrong UX. Awayke is the right idea with the right UX.
 
----
 
-## Contributing
-
-Stars, issues, and PRs welcome. If you're running AI agents and this saved a session, that's the whole point.
-
----
 
 ## License
 
