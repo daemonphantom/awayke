@@ -4,12 +4,30 @@
 
 
 
-**Close your lid. Keep your agents running.**
+**Awayke is a small one-click macOS menubar utility that prevents your Mac from sleeping when the lid is closed**
 
 
 Earlier this year Business Insider profiled the AI coders [walking around with their MacBook lids cracked open](https://www.businessinsider.com/coders-keep-laptops-open-in-public-ai-agent-2026-5).
 
 Awayke is the fix.
+
+## Install
+
+**Download (recommended):**
+
+1. Download the latest `Awayke.app.zip` from [Releases](https://github.com/daemonphantom/awayke/releases).
+2. Unzip, drag to `/Applications`.
+3. Open it.
+
+**Build from source:**
+
+```bash
+git clone https://github.com/daemonphantom/Awayke.git
+cd Awayke
+open Awayke.xcodeproj
+```
+
+Requires Xcode 16+, macOS 13 Ventura or later.
 
 
 ## What it does
@@ -43,7 +61,7 @@ Awayke uses the `pmset disablesleep` mechanism, Apple's own system-level power m
 ## Is this dangerous?
 
 The command Awayke uses is Apple's own tooling. Thermal risk for short hops, like walking between rooms or a bathroom break, is low. Apple Silicon throttles before anything damaging happens.
-Just put your laptop in a bag with Awayke active. Keep it on AC.
+Don't put your laptop in a bag with Awayke active. Keep it on AC. I cannot guarantee full safety though, so use this tool AT YOUR OWN RISK.
 
 
 ## How it works
@@ -53,27 +71,6 @@ macOS has a separate sleep pathway for lid-close events — independent from the
 Awayke wraps this in a single menubar toggle with no configuration surface.
 
 A privileged SMAppService helper daemon, installed once on first run, executes the `pmset` calls as root over XPC. After the one-time approval, every toggle is instant and silent — including across reboots. If the user declines approval, Awayke falls back to running the command via `osascript` with admin privileges, which prompts for the password on each toggle.
-
-
-
-## Install
-
-**Download (recommended):**
-
-1. Download the latest `Awayke.app.zip` from [Releases](https://github.com/daemonphantom/awayke/releases).
-2. Unzip, drag to `/Applications`.
-3. Open it.
-
-**Build from source:**
-
-```bash
-git clone https://github.com/daemonphantom/Awayke.git
-cd Awayke
-open Awayke.xcodeproj
-```
-
-Requires Xcode 16+, macOS 13 Ventura or later.
-
 
 
 ## Caveats
