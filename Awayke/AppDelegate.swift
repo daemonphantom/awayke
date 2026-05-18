@@ -113,7 +113,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func refreshStatusItem() {
         guard let button = statusItem?.button else { return }
         guard let base = NSImage(named: "StatusIcon") else { return }
-        base.size = NSSize(width: 18, height: 18)
 
         if isActive {
             button.image = orangeTinted(base)
