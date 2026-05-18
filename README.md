@@ -7,10 +7,6 @@
 **Awayke is a small one-click macOS menubar utility that prevents your Mac from sleeping when the lid is closed**
 
 
-Earlier this year Business Insider profiled the AI coders [walking around with their MacBook lids cracked open](https://www.businessinsider.com/coders-keep-laptops-open-in-public-ai-agent-2026-5).
-
-Awayke is the fix.
-
 ## Install
 
 **Download (recommended):**
