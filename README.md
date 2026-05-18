@@ -42,18 +42,8 @@ Awayke uses the `pmset disablesleep` mechanism, Apple's own system-level power m
 
 ## Is this dangerous?
 
-**The command Awayke uses is Apple's own tooling. And for the use case it's designed for: no.**
-
-MacBooks exhaust heat upward through the keyboard area. When the lid is closed, that exhaust path is partially restricted. Apple's own clamshell mode is officially supported, but only with AC power and an external monitor — partly because a connected display signals "I'm on a desk with ventilation, not in a bag."
-
-The dangerous scenario is: lid closed + inside a bag + heavy GPU/CPU load + conservative 15+ minutes. That's where sustained heat causes long-term degradation.
-
-**Awayke is designed for short hops: walking from one room to another, stepping into a meeting, a bathroom break.** 5–10 minutes, lid closed, ambient air around the laptop. Thermal risk in that scenario is genuinely low. Apple Silicon chips throttle gracefully before anything damaging happens.
-
-The bigger real-world risk is forgetting Awayke is on, putting the laptop in a bag, and coming back to a drained battery and a hot backpack an hour later. That's what a future enhancment protects against (5-minute auto-revert).
-
-**Keep the laptop on AC while Awayke is active.** macOS will still force sleep on critical battery regardless of `disablesleep`.
-
+The command Awayke uses is Apple's own tooling. Thermal risk for short hops, like walking between rooms or a bathroom break, is low. Apple Silicon throttles before anything damaging happens.
+Just put your laptop in a bag with Awayke active. Keep it on AC.
 
 
 ## How it works
