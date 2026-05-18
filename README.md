@@ -7,25 +7,6 @@
 **Awayke is a small one-click macOS menubar utility that prevents your Mac from sleeping when the lid is closed**
 
 
-## Install
-
-**Download (recommended):**
-
-1. Download the latest `Awayke.app.zip` from [Releases](https://github.com/daemonphantom/awayke/releases).
-2. Unzip, drag to `/Applications`.
-3. Open it.
-
-**Build from source:**
-
-```bash
-git clone https://github.com/daemonphantom/Awayke.git
-cd Awayke
-open Awayke.xcodeproj
-```
-
-Requires Xcode 16+, macOS 13 Ventura or later.
-
-
 ## What it does
 
 <img width="310" height="126" alt="toggle button" src="https://github.com/user-attachments/assets/457398c5-2324-4328-b2fe-a0d555042caf" />
@@ -36,9 +17,30 @@ Single click in your menubar:
 - **Orange laptop icon** - active: lid-close sleep is disabled. Close the lid and your agents keep running.
 - **White laptop icon** - inactive: normal macOS sleep behavior restored.
 
-On first launch, macOS asks you to approve Awayke's background helper. Approve it once and every toggle from then on is instant and silent — no password prompts, ever.
-
 Quitting Awayke always re-enables sleep automatically.
+
+## Install
+
+**Download (recommended):**
+
+1. Download the latest `Awayke.app.zip` from [Releases](https://github.com/daemonphantom/awayke/releases).
+2. Unzip, drag to `/Applications`.
+3. Open it.
+4. On first launch macOS will ask you to approve Awayke's background helper. Approve it once and toggling sleep is instant and silent from then on.
+
+<img width="372" height="141" alt="bgactivity" src="https://github.com/user-attachments/assets/02157a1b-e462-4905-b3b3-a0f7c2c6c235" />
+
+
+**Or build from source:**
+
+```bash
+git clone https://github.com/daemonphantom/Awayke.git
+cd Awayke
+open Awayke.xcodeproj
+```
+
+Requires Xcode 16+, macOS 13 Ventura or later.
+
 
 
 ## Who it's for
