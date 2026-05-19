@@ -10,9 +10,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var statusItem: NSStatusItem?
     private let powerManager = PowerManager()
     private let helper = HelperManager.shared
+    private let displayKeeper = DisplayWakeKeeper()
 
     private var isActive: Bool = false {
-        didSet { refreshStatusItem() }
+        didSet {
+            if isActive { displayKeeper.prevent() } else { displayKeeper.allow() }
+            refreshStatusItem()
+        }
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -20,6 +24,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         helper.register()
 
         let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        // Tightens the horizontal slot around the icon.
+        item.length = 14
         statusItem = item
 
         if let button = item.button {
@@ -29,13 +35,31 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         refreshStatusItem()
-    }
 
-    func applicationWillTerminate(_ notification: Notification) {
-        // Safety net: never leave the system with sleep disabled.
-        if isActive {
+        // Recovery from crash / force-kill: pmset disablesleep is a
+        // persistent system setting, so a previous instance that died
+        // without running its quit cleanup leaves SleepDisabled = 1.
+        // Silently reset it via the helper. Skipped if the helper isn't
+        // approved (no password prompt for cleanup the user didn't ask for).
+        if helper.isUsable {
             powerManager.disableSleep(false) { _ in }
         }
+    }
+
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        // Never leave the system with sleep disabled. Defer termination
+        // until the helper (or osascript fallback) finishes flipping
+        // pmset back off, so the main run loop stays alive for any auth
+        // UI the fallback path may need to show.
+        guard isActive else { return .terminateNow }
+
+        powerManager.disableSleep(false) { _ in
+            DispatchQueue.main.async {
+                self.displayKeeper.allow()
+                NSApp.reply(toApplicationShouldTerminate: true)
+            }
+        }
+        return .terminateLater
     }
 
     @objc private func handleClick(_ sender: NSStatusBarButton) {
@@ -113,6 +137,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func refreshStatusItem() {
         guard let button = statusItem?.button else { return }
         guard let base = NSImage(named: "StatusIcon") else { return }
+        base.size = NSSize(width: 16, height: 14)
 
         if isActive {
             button.image = orangeTinted(base)

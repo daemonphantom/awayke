@@ -14,8 +14,8 @@
 
 Single click in your menubar:
 
-- **Orange laptop icon** - active: lid-close sleep is disabled. Close the lid and your agents keep running.
-- **White laptop icon** - inactive: normal macOS sleep behavior restored.
+- **Orange laptop icon** - active: lid-close sleep, display sleep, and screen lock are all disabled. Close the lid and your agents keep running.
+- **White laptop icon** - inactive: normal macOS sleep, display, and lock behavior restored.
 
 Quitting Awayke always re-enables sleep automatically.
 
