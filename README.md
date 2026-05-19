@@ -73,7 +73,7 @@ A privileged SMAppService helper daemon, installed once on first run, executes t
 
 ## Why this exists
 
-Amphetamine is the right idea with the wrong UX. Awayke is the right idea with the right UX.
+Closing your lid to sleep your Mac is one of the best things about macOS and Awayke doesn't want to change that. It's an occasional override. Toggle on, close lid, walk to the next room, come back, toggle off.
 
 | | Awayke | Amphetamine | caffeinate |
 |---|---|---|---|
