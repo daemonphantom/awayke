@@ -49,16 +49,6 @@ You're running Claude Code, Codex, or Cursor on a long task. You want to close y
 
 If you've ever wedged something in your hinge to fake an external display, this is for you.
 
-
-
-## Does it work with the lid fully closed?
-
-**Yes, that's the entire point**
-
-Awayke uses the `pmset disablesleep` mechanism, Apple's own system-level power management command, which operates below the layer that App Store sandbox restrictions apply to. This is what makes it work where other "Keep Awake" apps may fail to execute.
-
-
-
 ## Is this dangerous?
 
 The command Awayke uses is Apple's own tooling. Thermal risk for short hops, like walking between rooms or a bathroom break, is low. Apple Silicon throttles before anything damaging happens.
