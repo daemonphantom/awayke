@@ -75,6 +75,14 @@ A privileged SMAppService helper daemon, installed once on first run, executes t
 
 Amphetamine is the right idea with the wrong UX. Awayke is the right idea with the right UX.
 
+| | Awayke | Amphetamine | caffeinate |
+|---|---|---|---|
+| Lid-close sleep prevention | ✅ | ✅ (buried 3 menus deep) | ❌ |
+| One-click toggle | ✅ | ❌ | ❌ |
+| No sudo prompt | ✅ | ✅ | ❌ |
+| Nothing else | ✅ | ❌ (feature-heavy) | — |
+
+Amphetamine is great. Awayke is for people who want exactly one thing, instantly.
 
 
 ## License
