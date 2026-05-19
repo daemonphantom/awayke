@@ -30,6 +30,8 @@ Quitting Awayke always re-enables sleep automatically.
 
 <img width="372" height="141" alt="bgactivity" src="https://github.com/user-attachments/assets/02157a1b-e462-4905-b3b3-a0f7c2c6c235" />
 
+Awayke is not on the Mac App Store because App Store sandboxing blocks the system call it needs. This is the same reason tools like Lunar, TextExpander, and BetterTouchTool are distributed outside the App Store. Download directly from Releases, open, confirm, and you are good to go.
+
 
 **Or build from source:**
 
