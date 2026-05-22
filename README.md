@@ -5,7 +5,7 @@
 
 
 
-[![Downloads](https://img.shields.io/badge/downloads-21-E48917?labelColor=grey)](https://github.com/daemonphantom/Awayke/releases/latest) [![Stars](https://img.shields.io/github/stars/daemonphantom/Awayke?style=social)](https://github.com/daemonphantom/Awayke) 
+[![Downloads](https://img.shields.io/github/downloads/daemonphantom/Awayke/total?color=666666&labelColor=444444)](https://github.com/daemonphantom/Awayke/releases/latest) [![Stars](https://img.shields.io/github/stars/daemonphantom/Awayke?style=social)](https://github.com/daemonphantom/Awayke) 
 
 Awayke is a small one-click macOS menubar utility that prevents your Mac from sleeping when the lid is closed
 
