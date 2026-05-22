@@ -12,7 +12,6 @@ enum HelperState: Equatable {
     case awaitingApproval
     case enabled
     case notFound
-    case registrationFailed(String)
 }
 
 enum HelperError: LocalizedError {
@@ -70,6 +69,14 @@ final class HelperManager {
 
     func revealInSystemSettings() {
         SMAppService.openSystemSettingsLoginItems()
+    }
+
+    func unregister() {
+        do {
+            try service.unregister()
+        } catch {
+            NSLog("Awayke: SMAppService.unregister() failed: \((error as NSError).localizedDescription)")
+        }
     }
 
     func setSleepDisabled(_ disable: Bool) async throws {

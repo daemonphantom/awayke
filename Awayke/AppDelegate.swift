@@ -99,6 +99,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         menu.addItem(.separator())
+        menu.addItem(NSMenuItem(title: "Uninstall Awayke…", action: #selector(menuUninstall), keyEquivalent: ""))
+        menu.addItem(.separator())
         menu.addItem(NSMenuItem(title: "Quit Awayke", action: #selector(menuQuit), keyEquivalent: "q"))
 
         for item in menu.items where item.action != nil {
@@ -123,16 +125,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             let item = NSMenuItem(title: "Helper not found (using fallback)", action: nil, keyEquivalent: "")
             item.isEnabled = false
             return item
-        case .registrationFailed(let detail):
-            let item = NSMenuItem(title: "Helper failed: \(detail)", action: nil, keyEquivalent: "")
-            item.isEnabled = false
-            return item
         }
     }
 
     @objc private func menuToggle() { toggle() }
     @objc private func menuApproveHelper() { helper.revealInSystemSettings() }
     @objc private func menuQuit() { NSApp.terminate(nil) }
+
+    @objc private func menuUninstall() {
+        let alert = NSAlert()
+        alert.messageText = "Uninstall Awayke?"
+        alert.informativeText = "This will remove Awayke's background helper from System Settings and quit the app. You can then move Awayke.app to the Trash."
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Uninstall")
+        alert.addButton(withTitle: "Cancel")
+        guard alert.runModal() == .alertFirstButtonReturn else { return }
+
+        helper.unregister()
+        NSApp.terminate(nil)
+    }
 
     private func refreshStatusItem() {
         guard let button = statusItem?.button else { return }

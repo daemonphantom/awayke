@@ -13,8 +13,6 @@ final class DisplayWakeKeeper {
 
     private var assertionID: IOPMAssertionID = 0
 
-    var isHolding: Bool { assertionID != 0 }
-
     func prevent() {
         guard assertionID == 0 else { return }
         let result = IOPMAssertionCreateWithName(
