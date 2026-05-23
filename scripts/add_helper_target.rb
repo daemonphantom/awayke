@@ -7,7 +7,7 @@ require 'xcodeproj'
 PROJECT_PATH    = File.expand_path('../Awayke.xcodeproj', __dir__)
 HELPER_NAME     = 'AwaykeHelper'                # Xcode target name
 HELPER_BUNDLE   = 'daemonphantom.Awayke.Helper' # Bundle ID + product file name
-DEPLOYMENT_TGT  = '14.0'
+DEPLOYMENT_TGT  = '13.0'
 
 project = Xcodeproj::Project.open(PROJECT_PATH)
 
