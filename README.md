@@ -17,8 +17,8 @@ Awayke is a small one-click macOS menubar utility that prevents your Mac from sl
 
 Single click in your menubar:
 
-- **Orange laptop icon** - active: lid-close sleep, display sleep, and screen lock are all disabled. Close the lid and your agents keep running.
-- **White laptop icon** - inactive: normal macOS sleep, display, and lock behavior restored.
+- **Orange laptop icon** - active: your Mac won't sleep even if you close the lid.
+- **White laptop icon** - inactive: restores your normal Mac settings.
 
 Quitting Awayke always re-enables sleep automatically.
 
@@ -27,13 +27,13 @@ Quitting Awayke always re-enables sleep automatically.
 **Download (recommended):**
 
 1. Download the latest `Awayke.app.zip` from [Releases](https://github.com/daemonphantom/awayke/releases).
-2. Unzip, drag to `/Applications`.
+2. Unzip it and drag to `/Applications`.
 3. Open it.
-4. On first launch macOS will ask you to approve Awayke's background helper. Approve it once and toggling sleep is instant and silent from then on.
+4. MacOS will ask you to approve Awayke's background helper (see image). Approve it once and toggling sleep is instant from then on.
 
 <img width="372" height="141" alt="bgactivity" src="https://github.com/user-attachments/assets/02157a1b-e462-4905-b3b3-a0f7c2c6c235" />
 
-Awayke is not on the Mac App Store because App Store sandboxing blocks the system call it needs. This is the same reason tools like Lunar, TextExpander, and BetterTouchTool are distributed outside the App Store. Download directly from Releases, open, confirm, and you are good to go.
+Note: Awayke is not on the App Store because App Store sandboxing blocks the system call it needs. This is normal, it is the same reason tools like Lunar, TextExpander, and BetterTouchTool are distributed outside the App Store. Download directly from Releases and you are good to go.
 
 
 **Or build from source:**
@@ -47,38 +47,40 @@ open Awayke.xcodeproj
 Requires Xcode 16+, macOS 13 Ventura or later.
 
 
-
 ## Who it's for
 
-You're running Claude Code, Codex, or Cursor on a long task. You want to close your laptop, walk to the next room, come back. You don't want to come back to a dead session.
+Anyone who occasionally needs their Mac to keep running while the lid is closed:
 
-If you've ever wedged something in your hinge to fake an external display, this is for you.
+- Running a long build, download, or server process
+- AI coding sessions with Claude Code, Cursor or Codex
+- Walking to the next room mid-task
+- Using your Mac as a home server
+
+No need to cut HDMI cable and insert it in your mac's hinge anymore. 
 
 ## Is this dangerous?
 
-The command Awayke uses is Apple's own tooling. Thermal risk for short hops, like walking between rooms or a bathroom break, is low. Apple Silicon throttles before anything damaging happens.
-Don't put your laptop in a bag with Awayke active. Keep it on AC. I cannot guarantee full safety though, so use this tool AT YOUR OWN RISK.
-
+Use this tool AT YOUR OWN RISK.
+That being said, the command Awayke runs is Apple's own tooling. Thermal risk is low for short period of time. Just make sure you do not put your laptop in a bag while Awayke is active. I cannot guarantee safety though.
 
 ## How it works
 
-macOS has a separate sleep pathway for lid-close events — independent from the display sleep that most "keep awake" apps target. The only reliable override is `pmset disablesleep`, Apple's own system-level power management command.
+macOS has a separate sleep pathway for lid-close events, which is independent from the display sleep that most "keep awake" apps target. The only reliable override is `pmset disablesleep`, Apple's own system-level power management command.
 
 Awayke wraps this in a single menubar toggle with no configuration surface.
 
-A privileged SMAppService helper daemon, installed once on first run, executes the `pmset` calls as root over XPC. After the one-time approval, every toggle is instant and silent — including across reboots. If the user declines approval, Awayke falls back to running the command via `osascript` with admin privileges, which prompts for the password on each toggle.
-
+A privileged SMAppService helper daemon, installed once on first run, executes the `pmset` calls as root over XPC. After the one-time approval, every toggle is instant and silent, also including across reboots.
 
 ## Caveats
 
 - `pmset -a disablesleep` is system-wide. While Awayke is active, nothing will sleep from a closed lid.
 - macOS will still force sleep on critical battery regardless of `disablesleep`. Keep the laptop on AC.
 
-
-
 ## Why this exists
 
-Closing your lid to sleep your Mac is one of the best things about macOS and Awayke doesn't want to change that. It's an occasional override. Toggle on, close lid, walk to the next room, come back, toggle off.
+Closing your lid to sleep your Mac is one of the best things about macOS and Awayke doesn't want to change that. It's an occasional override.
+
+Other apps exist to solve the isue such as Amphetamine with the same feature. But Awayke isn't trying to replace Amphetamine or be a full keep-awake utility. It does one thing: prevents lid-close sleep with a single click. That's it.
 
 | | Awayke | Amphetamine | caffeinate |
 |---|---|---|---|
@@ -89,7 +91,14 @@ Closing your lid to sleep your Mac is one of the best things about macOS and Awa
 
 Amphetamine is great. Awayke is for people who want exactly one thing, instantly.
 
+## Privacy Policy
+
+Awayke does not collect, store, or transmit any personal data or usage information. No crash report collected either. It only runs a simple command line.
+
+## Terms of Service
+
+Use is at your own risk. See safety notes regarding heat and power.
 
 ## License
 
-MIT
+[MIT](LICENSE)
